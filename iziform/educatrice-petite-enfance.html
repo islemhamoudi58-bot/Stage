@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IZiForM – Centre de formation professionnelle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+    }
+
+    /* HERO */
+    .hero-carousel {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-carousel .carousel,
+    .hero-carousel .carousel-inner,
+    .hero-carousel .carousel-item {
+      height: 100%;
+    }
+
+    .hero-carousel .carousel-item {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(121, 191, 207, 0.85);
+      z-index: 1;
+    }
+
+    .hero-left {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: #fff;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #e53935;
+      padding: 10px 20px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    /* FORMATION DETAILS */
+    .formation-details {
+      background: #f8f9fa;
+    }
+
+    .bg-green {
+      background: hsl(183, 65%, 36%);
+      color: #fff;
+    }
+
+    /* IMAGE FORMATION À DROITE */
+    .hero-images {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .hero-images img {
+      max-width: 1000px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+      border: 6px solid rgba(255, 255, 255, 0.6);
+    }
+
+    /* ================= MODULES PRO ================= */
+
+    .modules-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 10px;
+    }
+
+    .module-list-pro {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .module-list-pro li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: #f1f1f1;
+      line-height: 1.7;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .module-list-pro li i {
+      color: #00c853;
+      font-size: 16px;
+      margin-top: 3px;
+    }
+
+    .module-list-pro li:hover {
+      color: #ffffff;
+    }
+
+    /* ================= SCROLL DOWN ARROW ================= */
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: #fff;
+      font-size: 28px;
+      animation: bounce 2s infinite;
+      opacity: 0.9;
+    }
+
+    .scroll-down:hover {
+      color: #e53935;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      40% {
+        transform: translateX(-50%) translateY(10px);
+      }
+
+      60% {
+        transform: translateX(-50%) translateY(5px);
+      }
+    }
+
+    /* ================= SCROLL TO TOP ================= */
+    .scroll-top {
+      position: fixed;
+      bottom: 35px;
+      right: 35px;
+      width: 48px;
+      height: 48px;
+      background: hsl(183, 65%, 36%);
+      color: #fff;
+      font-size: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .35s ease;
+      z-index: 999;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      background: #00c853;
+      transform: translateY(-5px);
+    }
+
+    /* ================= HERO BUTTON ================= */
+    .btn-hero-inscription {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 25px;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(45deg, #00c853, #009688);
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .35);
+      transition: all .35s ease;
+    }
+
+    .btn-hero-inscription:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(45deg, #009688, #00c853);
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =================== NAVBAR =================== -->
+  <nav class="navbar navbar-expand-lg izi-navbar">
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="formation.html">
+        <img src="img/log1.png" alt="Logo IZiForM" height="50" class="me-2">
+        <span class="brand-text">IZiForM</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#iziMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="iziMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+
+          <li class="nav-item">
+            <a class="nav-link active d-flex align-items-center" href="formation.html">
+              <i class="fas fa-home me-2"></i> Accueil
+            </a>
+          </li>
+
+
+
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle" href="formation.html">Formations</a>
+
+
+          </li>
+
+
+          <li class="nav-item"><a class="nav-link" href="diplome.html">Diplômes</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+          <li class="nav-item ms-3">
+            <a class="btn btn-inscription" href="inscription.html">Inscription</a>
+          </li>
+
+          <li class="nav-item dropdown ms-3">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">FR</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="index.html">🇫🇷 Français</a></li>
+              <li><a class="dropdown-item" href="index-en.html">🇬🇧 English</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-carousel">
+
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image:url('img/educatrice.png')"></div>
+        <div class="carousel-item" style="background-image:url('img/educatrice.png')"></div>
+        <div class="carousel-item" style="background-image:url('img/educatrice.png')"></div>
+      </div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-left container">
+      <div class="hero-text">
+
+        <span class="hero-badge" data-aos="fade-right">
+          Inscriptions ouvertes – Janvier / Février 2026
+        </span>
+
+        <h1 data-aos="fade-right" data-aos-delay="200">
+          Diplôme : BTS<br>
+          Spécialité :Directeur de la Maternelle<br>
+          <span>مربي طفولة أولى ومبكرة</span>
+        </h1>
+
+        <p data-aos="fade-right" data-aos-delay="400">
+          Durée de formation : <strong>2 ans</strong>
+        </p>
+
+        <a href="insription.html" class="btn-hero-inscription" data-aos="fade-right" data-aos-delay="600">
+          <i class="fas fa-edit me-2"></i> S’inscrire
+        </a>
+
+      </div>
+    </div>
+
+    <a href="#formation" class="scroll-down">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+
+  </section>
+
+  <!-- FORMATION DETAILS -->
+  <section class="formation-details py-5" id="formation">
+    <div class="container">
+      <div class="row g-0">
+
+        <div class="col-lg-6 bg-green p-5" data-aos="fade-up">
+          <h4 class="modules-title text-center mb-4">
+            Diplôme : BTS
+          </h4>
+
+          <ul class="module-list-pro">
+            <li><i class="fas fa-check-circle"></i> Développement du nourrisson et de l'enfant</li>
+            <li><i class="fas fa-check-circle"></i> Observation et évaluation</li>
+            <li><i class="fas fa-check-circle"></i> Intelligence émotionnelle</li>
+            <li><i class="fas fa-check-circle"></i> Santé et nutrition</li>
+            <li><i class="fas fa-check-circle"></i> Hygiène et sécurité</li>
+            <li><i class="fas fa-check-circle"></i> Approches pédagogiques modernes</li>
+            <li><i class="fas fa-check-circle"></i> Psychomotricité et graphisme</li>
+            <li><i class="fas fa-check-circle"></i> Inclusion des enfants à besoins spécifiques</li>
+            <li><i class="fas fa-check-circle"></i> Gestion administrative et financière</li>
+            <li><i class="fas fa-check-circle"></i> Stages professionnels (2 phases)</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6 d-none d-lg-flex justify-content-end" data-aos="fade-left">
+          <div class="hero-images">
+            <img src="img/educatrice.png" alt="Formation Éducatrice">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <a href="#" class="scroll-top" title="Retour en haut">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    const scrollTopBtn = document.querySelector('.scroll-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

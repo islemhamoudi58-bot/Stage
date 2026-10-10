@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IZiForM – Inscription aux Formations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/inscription.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ================= BACKGROUND PAGE ================= */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url("img/inscription.jpg") center/cover no-repeat fixed;
+      position: relative;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/log1.png" alt="Logo IZiForM" height="50" class="me-2">
+        <span class="brand-text">IZiForM</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#iziMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="iziMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-home me-2"></i> Accueil</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="formation.html">Formations</a></li>
+          <li class="nav-item"><a class="nav-link" href="diplome.html">Diplômes</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+
+          <li class="nav-item"><a class="nav-link" href="iziform/index.php">Espaces Privée</a></li>
+          <li class="nav-item ms-3"><a class="btn btn-success" href="inscription.html">Inscription</a></li>
+          <li class="nav-item dropdown ms-3">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">FR</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="insription.html">🇫🇷 Français</a></li>
+              <li><a class="dropdown-item" href="insription-en.html">🇬🇧 English</a></li>
+              <li><a class="dropdown-item" href="insrition-ar.html">🇸🇦 العربية</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-inscription">
+    <div class="container hero-container">
+      <div class="row align-items-center">
+        <!-- Texte -->
+        <div class="col-md-6 hero-content" data-aos="fade-right">
+          <span class="hero-badge">INSCRIPTION</span>
+          <h1>Inscription aux Formations<br>BTP & BTS – IZiForM</h1>
+          <div class="hero-line"></div>
+          <p class="hero-sub">Médenine & Zarzis</p>
+          <p class="hero-desc">Choisissez votre formation et commencez votre avenir professionnel</p>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="hero-form">
+            <h5 class="hero-form-title">Formulaire d’inscription</h5>
+            <form action="inscription2.html" method="GET" id="inscriptionForm">
+              <div class="mb-3">
+                <label class="fw-semibold">Formation choisie</label>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <input type="text" name="formation" id="formationInput" class="form-control"
+                      placeholder="Choisie depuis les cartes" readonly required>
+                  </div>
+                  <div class="col-md-6">
+                    <select id="formationSelect" class="form-select" aria-label="Choisir une formation">
+                      <option value="">-- Choisir une formation --</option>
+                      <option value="Préparation en Pharmacie">Préparation en Pharmacie</option>
+                      <option value="Jardin d'enfant">Jardin d'enfant</option>
+                      <option value="Directeur de la Maternelle">Directeur de la Maternelle</option>
+                      <option value="Comptabilité d'entreprise">Comptabilité d'entreprise</option>
+                      <option value="Comptabilité & Finance">Comptabilité & Finance</option>
+                      <option value="Informatique de gestion">Informatique de gestion</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3"><label><b>Nom</b></label><input type="text" name="nom" class="form-control" required>
+              </div>
+              <div class="mb-3"><label><b>Prénom</b></label><input type="text" name="prenom" class="form-control" required></div>
+              <div class="mb-3"><label><b>Email</b></label><input type="email" name="email" id="email" class="form-control" required>
+              </div>
+              <div class="mb-3"><label><b>Téléphone</b></label><input type="text" name="tel" id="tel" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="fw-semibold d-block mb-2">Type de formation</label>
+                <div class="d-flex gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeFormation" id="btp" value="BTP" required>
+                    <label class="form-check-label" for="btp">BTP</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeFormation" id="bts" value="BTS" required>
+                    <label class="form-check-label" for="bts">BTS</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeFormation" id="bts" value="Bac en cours "
+                      required>
+                    <label class="form-check-label" for="Bac en cours ">Bac en cours</label>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-success btn-lg w-100">Continuer l’inscription →</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATIONS -->
+  <section class="py-5 bg-light">
+    <div class="container text-center mb-4">
+      <h2 class="section-title"><b>Choisissez votre formation</b></h2>
+      <p class="section-subtitle"><b>Sélectionnez une formation pour continuer votre inscription</b></p>
+
+      <div class="row g-4" id="formationsList">
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Préparation en Pharmacie"><img src="img/pharmacie2.jpg"
+              class="w-100">
+            <h6>Préparation en Pharmacie</h6><small>تقني محضر صيدلة</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Jardin d'enfant"><img src="img/m.jpg" class="w-100">
+            <h6>Jardin d'enfant</h6><small>تنشيط رياض أطفال</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation=" Directeur de la Maternelle"><img src="img/educatrice.png"
+              class="w-100">
+            <h6> Directeur de la Maternelle</h6><small>مربي طفولة أولى ومبكرة</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Comptabilité d'entreprise"><img src="img/comptabilite.jpg"
+              class="w-100">
+            <h6>Comptabilité d'entreprise</h6><small>محاسبة منشأة</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Comptabilité & Finance"><img src="img/finance.webp" class="w-100">
+            <h6>Comptabilité & Finance</h6><small>المحاسبة والمالية</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Informatique de gestion"><img src="img/informatique.jpg"
+              class="w-100">
+            <h6>Informatique de gestion</h6><small>مساعد في إعلامية التصرف</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    const boxes = document.querySelectorAll('.formation-box');//tous les carte de formation
+    const formationInput = document.getElementById('formationInput');//tous champs input text
+    const formationSelect = document.getElementById('formationSelect');//menu
+
+    // CLICK SUR UNE CARD
+    boxes.forEach(box => {
+      box.addEventListener('click', () => {//cliquer sur chaque carte
+        const value = box.dataset.formation;//recuperer le formtion
+        formationInput.value = value;//remplir auto
+        formationSelect.value = value;
+        document.querySelector('.hero-form').scrollIntoView({ behavior: 'smooth' });//page descend vers formulaire et annimation fluide "smooth""scrol auto"
+      });
+    });
+
+    // CHOIX VIA LA LISTE lorsque on click sur liste le champ texte se replit auto
+    formationSelect.addEventListener('change', () => {
+      formationInput.value = formationSelect.value;
+    });
+
+    // CHOIX DIRECT INPUT
+    formationInput.addEventListener('input', () => {
+      formationSelect.value = formationInput.value;
+    });
+
+    // IntersectionObserver pour animation des cartes
+    const observer = new IntersectionObserver((entries) => {//outil detecte si un element visible
+      entries.forEach(entry => {//verifier chaque element observe
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');//ajouter un annimation show;visible et annimer
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });//configuaration declancher 10% de elemnet visible
+
+    boxes.forEach(box => observer.observe(box));//observer tous les carte
+  </script>
+
+
+
+  <script>
+    //validation au moment de lenvoi verifier tel et email si erreur bloc envoi
+    document.getElementById("inscriptionForm").addEventListener("submit", function (e) {
+
+      const tel = document.getElementById("tel").value.trim();//trim supprimer les espace 
+      const email = document.getElementById("email").value.trim();
+
+      // ✅ Vérifier téléphone = exactement 8 chiffres
+      const telRegex = /^[0-9]{8}$/;
+
+      if (!telRegex.test(tel)) {
+        alert("❌ Le numéro de téléphone doit contenir exactement 8 chiffres !");
+        e.preventDefault(); // bloque l'envoi
+        return;
+      }
+
+      // ✅ Vérifier format email (sécurité simple)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        alert("❌ Veuillez entrer une adresse email valide !");
+        e.preventDefault();
+        return;
+      }
+
+    });
+  </script>
+
+  
+
+</body>
+
+</html>

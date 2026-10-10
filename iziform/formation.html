@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IZiForM – Centre de formation professionnelle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+<style>
+    /* ===================== SECTION FORMATIONS ===================== */
+
+    .formations-hero {
+      position: relative;
+      padding: 140px 0;
+      background: url("img/formation.jpg") center/cover no-repeat;
+    }
+
+    .formations-hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(12, 40, 66, 0.92),
+          rgba(0, 200, 83, 0.85));
+    }
+
+    .formations-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ================= HERO TITLE DECORATION ================= */
+
+    .hero-title {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* Badge "Nos Formations" */
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 26px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #00c853;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Titre principal */
+    .hero-heading {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    /* Ligne décorative sous le titre */
+    .hero-heading::after {
+      content: "";
+      display: block;
+      width: 120px;
+      height: 4px;
+      background: #00c853;
+      margin: 22px auto 0;
+      border-radius: 5px;
+    }
+
+    /* Sous-titre */
+    .hero-subheading {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #e0e0e0;
+      margin-top: 15px;
+    }
+
+    /* Description */
+    .hero-description {
+      font-size: 1.05rem;
+      color: #f1f1f1;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-heading {
+        font-size: 2rem;
+      }
+    }
+
+
+    /* ================== CARTES FORMATIONS – MEME TAILLE ================== */
+
+    .formation-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .15);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .formation-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, .25);
+    }
+
+    /* Images toutes à la même hauteur */
+    .formation-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Corps de la carte */
+    .formation-card .card-body {
+      flex: 1;
+      /* 👈 force la même hauteur */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px;
+    }
+
+    /* Titres centrés et équilibrés */
+    .formation-card .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      min-height: 70px;
+      /* 👈 aligne les titres */
+    }
+
+    .formation-card .card-title span {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #6c757d;
+      margin-top: 6px;
+    }
+
+    /* Bouton toujours en bas */
+    .formation-card .btn {
+      margin-top: 15px;
+      align-self: center;
+    }
+
+    .formation-card {
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(6px);
+    }
+
+
+
+
+    /* ===== Flèche retour en haut ===== */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #00c853, #009e3f);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all .35s ease;
+      z-index: 999;
+    }
+
+    /* Visible après scroll */
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: linear-gradient(135deg, #009e3f, #007a2f);
+      transform: translateY(-4px);
+    }
+  </style>
+
+<body>
+  <!-- =================== NAVBAR =================== -->
+  <nav class="navbar navbar-expand-lg izi-navbar">
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/log1.png" alt="Logo IZiForM" height="50" class="me-2">
+        <span class="brand-text">IZiForM</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#iziMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="iziMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+
+          <li class="nav-item">
+            <a class="nav-link active d-flex align-items-center" href="index.html">
+              <i class="fas fa-home me-2"></i> Accueil
+            </a>
+          </li>
+
+
+
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle" href="formation.html">Formations</a>
+
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="row">
+
+                  <!-- Santé -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-pills"></i> Santé
+                    </h6>
+                    <a class="dropdown-item" href="preparateur-pharmacie-btp.html">
+                      Technicien Préparateur en Pharmacie<br>
+                      <small class="text-muted">تقني محضر صيدلة</small>
+                    </a>
+                  </div>
+
+                  <!-- Comptabilité -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-calculator"></i> Comptabilité & Finance
+                    </h6>
+                    <a class="dropdown-item" href="comptabilite-finance.html">
+                      Comptabilité et Finance<br>
+                      <small class="text-muted">المحاسبة والمالية</small>
+                    </a>
+                    <a class="dropdown-item" href="Comptabilite-denteprise.html">
+                      Comptabilité d'entreprise<br>
+                      <small class="text-muted">محاسبة منشأة</small>
+                    </a>
+                  </div>
+
+                  <!-- Informatique -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-desktop"></i> Informatique de gestion
+                    </h6>
+                    <a class="dropdown-item" href="informatique de gestion.html">
+                      Informatique de gestion<br>
+                      <small class="text-muted">مساعد في إعلامية التصرف</small>
+                    </a>
+                  </div>
+
+                  <!-- Éducation -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-child"></i> Éducation
+                    </h6>
+                    <a class="dropdown-item" href="Jardin-denfant-btp-bts.html">
+                      Jardin d'enfant<br>
+                      <small class="text-muted">رياض أطفال</small>
+                    </a><br>
+                    <a class="dropdown-item" href="educatrice-petite-enfance.html">
+                      Directeur de la Maternelle<br>
+                      <small class="text-muted">مربي طفولة أولى ومبكرة</small>
+                    </a>
+
+
+                  </div>
+
+                  <!-- Bouton -->
+                  <div class="col-md-12 text-center mt-4">
+                    <a href="formation.html" class="btn btn-dark btn-lg">
+                      Voir toutes les formations
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+
+
+          <li class="nav-item"><a class="nav-link" href="diplome.html">Diplômes</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="iziform/index.php">Espaces Privée</a></li>
+          <li class="nav-item ms-3">
+            <a class="btn btn-inscription" href="insription.html">Inscription</a>
+          </li>
+          <li class="nav-item dropdown ms-3">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">FR</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="formation.html">🇫🇷 Français</a></li>
+              <li><a class="dropdown-item" href="formation-en.html">🇬🇧 English</a></li>
+              <li><a class="dropdown-item" href="formation-ar.html">🇸🇦 العربية</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <section class="formations-hero" id="top">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+
+      <!-- TITRE -->
+      <div class="text-center text-white mb-5 hero-title" data-aos="fade-down">
+        <span class="hero-badge">Nos Formations</span>
+
+        <h1 class="hero-heading mt-4">
+          Formation BTP / BTS Médenine & Zarzis
+        </h1>
+
+        <h4 class="hero-subheading">
+          avec ou sans bac
+        </h4>
+
+        <p class="hero-description mt-4">
+          Découvrez les formations les plus demandées sur le marché d'emploi
+        </p>
+      </div>
+
+      <!-- FORMATIONS BTP -->
+      <div class="row g-4">
+
+        <!-- CARD 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card ">
+            <img src="img/pharmaci.png!w700wp" class="card-img-top" alt="Préparateur en Pharmacie BTP">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                Préparation en Pharmacie<br>
+                <span>تقني محضر صيدلة</span>
+              </h5>
+              <a href="preparateur-pharmacie-btp.html" class="btn btn-success mt-3">
+                Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card">
+            <img src="img/m.jpg" class="card-img-top" alt="Jardin d'enfant BTP">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                Jardin d'enfant<br>
+                <span>تنشيط رياض أطفال</span>
+              </h5>
+              <a href="Jardin-denfant-btp-bts.html" class="btn btn-success mt-3">
+                Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 3: ÉDUCATRICE DE LA PETITE ENFANCE -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card">
+            <img src="img/educatrice.png" class="card-img-top" alt="Éducatrice de la petite enfance">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                Directeur de la Maternelle<br>
+                <span>مربي طفولة أولى ومبكرة</span>
+              </h5>
+              <a href="educatrice-petite-enfance.html" class="btn btn-success mt-3">
+                Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- CARD 4 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card ">
+            <img src="img/comptabilite.jpg" class="card-img-top" alt="Comptabilité d'entreprise">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                Comptabilité d'entreprise<br>
+                <span>محاسبة منشأة</span>
+              </h5>
+              <a href="Comptabilite-denteprise.html" class="btn btn-success mt-3">
+                Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- CARD 5 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card ">
+            <img src="img/finance.webp" class="card-img-top" alt="Comptabilité & Finance">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                Comptabilité & Finance<br>
+                <span>المحاسبة والمالية</span>
+              </h5>
+              <a href="comptabilite-finance.html" class="btn btn-success mt-3">
+                Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 6-->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card ">
+            <img src="img/informatique.jpg" class="card-img-top" alt=" Informatique de gestion">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                Informatique de gestion<br>
+                <span>مساعد في إعلامية التصرف</span>
+              </h5>
+              <a href="informatique de gestion.html" class="btn btn-success mt-3">
+                Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TYPES DE FORMATIONS -->
+      <div class="text-center my-5">
+        <h2 class="fw-bold">Types des Formations Privées à IZiForM</h2>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- DIPLOMANTES -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card ">
+            <img src="img/formationdep.jpg" class="card-img-top" alt="Formations Diplomantes">
+            <div class="card-body text-center">
+              <h5 class="card-title">Formations Diplomantes</h5>
+              <a href="diplome.html" class="btn btn-outline-success mt-3">
+                Voir plus
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCELEREES -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card ">
+            <img src="img/exxelere.png" class="card-img-top" alt="Formations Accélérées">
+            <div class="card-body text-center">
+              <h5 class="card-title">Formations Accélérées</h5>
+              <a href="formations-accelerees.html" class="btn btn-outline-success mt-3">
+                Voir plus
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERTIFIANTES -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card formation-card">
+            <img src="img/fc.jpg" class="card-img-top" alt="Formations Certifiantes">
+            <div class="card-body text-center">
+              <h5 class="card-title">Formations Certifiantes</h5>
+              <a href="formations-certifiantes.html" class="btn btn-outline-success mt-3">
+                Voir plus
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="site-footer">
+    <div class="container py-5">
+      <div class="row">
+
+        <!-- Contact -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Contact</h5>
+          <p><i class="fas fa-map-marker-alt"></i> شارع 20 مارس بجانب بنك الوفاق, Zarzis</p>
+          <p><i class="fas fa-map-marker-alt"></i> طريق قابس قبالة المحكمة العقارية , Medénine</p>
+          <p><i class="fas fa-phone-alt"></i> (+216) 98596396</p>
+          <p><i class="fas fa-phone-alt"></i> (+216) 53596396</p>
+          <p><i class="fas fa-phone-alt"></i> (+216) 56596395</p>
+          <p><i class="fas fa-envelope"></i> zitounaformation1@gmail.com</p>
+
+          <div class="footer-social mt-3">
+            <a href="https://x.com/Zitouna12345" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100072453524289" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@ZitounaFormation" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/zitounaformation?igsh=MnBxYmlzbnM1eG1s" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/zitouna-formation-8715a5331/" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Menu -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Menu</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="iziform.html">Centre IZiForM</a></li>
+            <li><a href="formations.html">Formations</a></li>
+            <li><a href="diplomes.html">Diplômes</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="inscription.html">Inscription</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Diplômes -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Diplômes BTP - BTS</h5>
+          <ul class="footer-links">
+            <li><a href="preparateur-pharmacie-btp.html">Technicien Préparateur en Pharmacie</a></li>
+            <li><a href="comptabilite-finance.html">Comptabilité et finance</a></li>
+            <li><a href="informatique de gestion.html">Informatique de gestion</a></li>
+            <li><a href="Comptabilite-denteprise.html">Comptabilité d'entreprise</a></li>
+            <li><a href="Jardin-denfant-btp-bts.html">Jardin d'enfant</a></li>
+          </ul>
+        </div>
+
+        <!-- Facebook Page -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Page Facebook</h5>
+          <p><fb:like-box href="https://www.facebook.com/profile.php?id=100072453524289" width="253" hight="270"
+              stream="false" header="true"></fb:like-box> </p>
+          <p><fb:like-box href=" https://www.facebook.com/profile.php?id=100063778484748" width="253" hight="270"
+              stream="false" header="true"></fb:like-box> </p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v18.0">
+    </script>
+    <div class="container copyright">
+
+      <h4>Center de formation Médenine</h4>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3332.824459754969!2d10.487520328836053!3d33.3495355621447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1254d7794364c94d%3A0xf5fde291298ac3b5!2sCentre%20de%20formation%20zitouna!5e0!3m2!1sfr!2stn!4v1724096346266!5m2!1sfr!2stn"
+        width="100%" height="215" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+      <h4>Center de formation Zarzis</h4>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6654.076649633768!2d11.107172!3d33.50038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13aaef0dbaa7a3b7%3A0x52db37ef088fe9ff!2sInstitut%20Zitouna%20De%20Formation!5e0!3m2!1sfr!2stn!4v1716802216580!5m2!1sfr!2stn"
+        width="100%" height="215" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+    </div>
+    <div class="footer-bottom text-center py-3">
+      &copy; 2026 IZiForM – Tous droits réservés
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+  
+<!--flech vers le top-->
+  <a href="#top" class="scroll-top" aria-label="Retour en haut de page">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+  <script>
+    const scrollTopBtn = document.querySelector('.scroll-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {//lorsque on descend plus que 400px
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+  </script>
+
+
+
+</body>
+
+</html>

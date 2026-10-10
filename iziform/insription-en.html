@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IZiForM – Registration for Courses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ================= BACKGROUND PAGE ================= */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url("img/inscription.jpg") center/cover no-repeat fixed;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    /* ================= HERO ================= */
+    .hero-inscription {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      z-index: 1;
+      padding-top: 100px;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-content {
+      color: #fff;
+      padding: 30px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #00c85362;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .hero-line {
+      width: 80px;
+      height: 3px;
+      background: #00c853;
+      margin: 20px 0;
+      border-radius: 3px;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: #d1fae5;
+      margin-bottom: 20px;
+    }
+
+    .hero-scroll i {
+      font-size: 1.5rem;
+      color: #00c85352;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(10px);
+      }
+
+      60% {
+        transform: translateY(5px);
+      }
+    }
+
+    /* FORMULAIRE HERO GLASSMORPHISM */
+    .hero-form {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    .hero-form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-form input,
+    .hero-form select {
+      border-radius: 12px;
+      padding: 12px;
+      background: #00805a5d;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-form button {
+      background-color: #00c853;
+      border: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 12px;
+      border-radius: 12px;
+      transition: background 0.3s, transform 0.3s;
+      color: #fff;
+    }
+
+    .hero-form button:hover {
+      background-color: #00b247;
+      transform: translateY(-2px);
+    }
+
+    .hero-form-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      text-align: center;
+      background: linear-gradient(100deg, #c8be00d0, #0ea800cf);
+      -webkit-background-clip: text;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-form-title::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: #00c8532f;
+      margin: 12px auto 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 200, 83, 0.153);
+      transition: width 0.5s ease;
+    }
+
+    .hero-form-title:hover::after {
+      width: 80px;
+    }
+
+    /* FORM CHECK RADIO */
+    .form-check-input {
+      accent-color: #00c853;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .form-check-input:checked {
+      transform: scale(1.2);
+    }
+
+    .form-check-label {
+      font-weight: 600;
+      color: #111;
+      cursor: pointer;
+    }
+
+    /* FORMATIONS CARDS */
+    .formation-box {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s;
+      cursor: pointer;
+      text-align: center;
+      padding-bottom: 20px;
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+
+    .formation-box.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .formation-box img {
+      width: 100%;
+      border-bottom: 1px solid #eee;
+    }
+
+    .formation-box h6 {
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #111;
+    }
+
+    .formation-box small {
+      display: block;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    .formation-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+
+      .hero-content,
+      .hero-form {
+        text-align: center !important;
+        margin-bottom: 20px;
+      }
+
+      .hero-form {
+        margin-top: 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+
+    /* NAVBAR */
+    .navbar-transparent {
+      background: rgba(0, 0, 0, 0.15) !important;
+      backdrop-filter: blur(8px);
+      transition: 0.3s ease;
+      z-index: 1000;
+    }
+
+    .navbar-transparent .nav-link,
+    .navbar-transparent .navbar-brand,
+    .navbar-transparent .brand-text {
+      color: #fff !important;
+      font-weight: 500;
+    }
+
+    .navbar-transparent .nav-link:hover {
+      color: #00c853 !important;
+    }
+
+    .navbar-transparent .btn-success {
+      background-color: #00c853;
+      border: none;
+    }
+
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/log1.png" alt="IZiForM Logo" height="50" class="me-2">
+        <span class="brand-text">IZiForM</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#iziMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="iziMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-home me-2"></i> Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="formation.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="diplome.html">Diplomas</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerie.html">Gallery</a></li>
+
+          <li class="nav-item"><a class="nav-link" href="iziform/index.php">Private Area</a></li>
+          <li class="nav-item ms-3"><a class="btn btn-success" href="inscription.html">Registration</a></li>
+          <li class="nav-item dropdown ms-3">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">EN</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="insription.html">🇫🇷 Français</a></li>
+              <li><a class="dropdown-item" href="insription-en.html">🇬🇧 English</a></li>
+              <li><a class="dropdown-item" href="insrition-ar.html">🇸🇦 العربية</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-inscription">
+    <div class="container hero-container">
+      <div class="row align-items-center">
+        <div class="col-md-6 hero-content" data-aos="fade-right">
+          <span class="hero-badge">REGISTRATION</span>
+          <h1>Registration for Courses<br>BTP & BTS – IZiForM</h1>
+          <div class="hero-line"></div>
+          <p class="hero-sub">Médenine & Zarzis</p>
+          <p class="hero-desc">Choose your course and start your professional future</p>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="hero-form">
+            <h5 class="hero-form-title">Registration Form</h5>
+            <form action="inscription2.html" method="GET" id="inscriptionForm">
+              <div class="mb-3">
+                <label class="fw-semibold">Chosen Course</label>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <input type="text" name="formation" id="formationInput" class="form-control"
+                      placeholder="Selected from cards" readonly required>
+                  </div>
+                  <div class="col-md-6">
+                    <select id="formationSelect" class="form-select" aria-label="Choose a course">
+                      <option value="">-- Choose a course --</option>
+                      <option value="Pharmacy Preparation">Pharmacy Preparation</option>
+                      <option value="Kindergarten Assistant">Kindergarten Assistant</option>
+                      <option value="Nursery Manager">Nursery Manager</option>
+                      <option value="Business Accounting">Business Accounting</option>
+                      <option value="Accounting & Finance">Accounting & Finance</option>
+                      <option value="Management Information Systems">Management Information Systems</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3"><label><b>Last Name</b></label><input type="text" name="nom" class="form-control"
+                  required>
+              </div>
+              <div class="mb-3"><label><b>First Name</b></label><input type="text" name="prenom" class="form-control"
+                  required></div>
+              <div class="mb-3"><label><b>Email</b></label><input type="email" name="email" id="email"
+                  class="form-control" required></div>
+              <div class="mb-3"><label><b>Phone</b></label><input type="text" name="tel" id="tel" class="form-control"
+                  required></div>
+
+              <div class="mb-3">
+                <label class="fw-semibold d-block mb-2">Course Type</label>
+                <div class="d-flex gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeFormation" id="btp" value="BTP" required>
+                    <label class="form-check-label" for="btp">BTP</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeFormation" id="bts" value="BTS" required>
+                    <label class="form-check-label" for="bts">BTS</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeFormation" id="bac" value="Bac en cours "
+                      required>
+                    <label class="form-check-label" for="bac">Bac in progress</label>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-success btn-lg w-100">Continue Registration →</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light">
+    <div class="container text-center mb-4">
+      <h2 class="section-title"><b>Choose your course</b></h2>
+      <p class="section-subtitle"><b>Select a course to continue your registration</b></p>
+
+      <div class="row g-4" id="formationsList">
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Pharmacy Preparation"><img src="img/pharmacie2.jpg" class="w-100">
+            <h6>Pharmacy Preparation</h6><small>تقني محضر صيدلة</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Kindergarten Assistant"><img src="img/m.jpg" class="w-100">
+            <h6>Kindergarten Assistant</h6><small>تنشيط رياض أطفال</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Nursery Manager"><img src="img/educatrice.png" class="w-100">
+            <h6>Nursery Manager</h6><small>مربي طفولة أولى ومبكرة</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Business Accounting"><img src="img/comptabilite.jpg" class="w-100">
+            <h6>Business Accounting</h6><small>محاسبة منشأة</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Accounting & Finance"><img src="img/finance.webp" class="w-100">
+            <h6>Accounting & Finance</h6><small>المحاسبة والمالية</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="formation-box" data-formation="Management Information Systems"><img src="img/informatique.jpg"
+              class="w-100">
+            <h6>Management Information Systems</h6><small>مساعد في إعلامية التصرف</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    const boxes = document.querySelectorAll('.formation-box');
+    const formationInput = document.getElementById('formationInput');
+    const formationSelect = document.getElementById('formationSelect');
+
+    // CLICK ON A CARD
+    boxes.forEach(box => {
+      box.addEventListener('click', () => {
+        const value = box.dataset.formation;
+        formationInput.value = value;
+        formationSelect.value = value;
+        document.querySelector('.hero-form').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // CHOICE VIA SELECT
+    formationSelect.addEventListener('change', () => {
+      formationInput.value = formationSelect.value;
+    });
+
+    // DIRECT INPUT CHOICE
+    formationInput.addEventListener('input', () => {
+      formationSelect.value = formationInput.value;
+    });
+
+    // IntersectionObserver for card animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    boxes.forEach(box => observer.observe(box));
+  </script>
+
+  <script>
+    document.getElementById("inscriptionForm").addEventListener("submit", function (e) {
+
+      const tel = document.getElementById("tel").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      // ✅ Check phone = exactly 8 digits
+      const telRegex = /^[0-9]{8}$/;
+
+      if (!telRegex.test(tel)) {
+        alert("❌ The phone number must contain exactly 8 digits!");
+        e.preventDefault();
+        return;
+      }
+
+      // ✅ Check email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        alert("❌ Please enter a valid email address!");
+        e.preventDefault();
+        return;
+      }
+
+    });
+  </script>
+
+  <script>
+    const telInput = document.getElementById("tel");
+    const emailInput = document.getElementById("email");
+
+    telInput.addEventListener("input", function () {
+      const telRegex = /^[0-9]{8}$/;
+      if (telRegex.test(this.value)) {
+        this.classList.add("valid");
+        this.classList.remove("invalid");
+      } else {
+        this.classList.add("invalid");
+        this.classList.remove("valid");
+      }
+    });
+
+    emailInput.addEventListener("input", function () {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailRegex.test(this.value)) {
+        this.classList.add("valid");
+        this.classList.remove("invalid");
+      } else {
+        this.classList.add("invalid");
+        this.classList.remove("valid");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

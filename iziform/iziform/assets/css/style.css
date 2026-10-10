@@ -1,0 +1,104 @@
+/* Reset simple */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+/* Sidebar déjà inclus, ajouter style des tables et boutons */
+table {
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th {
+    background-color: #111827;
+    color: #22c55e;
+}
+
+table td {
+    color: #cbd5f5;
+}
+
+table tr {
+    border-bottom: 1px solid #334155;
+}
+
+table tr:nth-child(even){
+    background-color: #1e293b;
+}
+
+table tr:hover {
+    background-color: #334155;
+}
+
+/* Boutons */
+button, input[type="submit"] {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Form inputs */
+input, textarea, select {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    border-radius: 8px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #22c55e;
+}
+
+/* Messages d’alerte */
+p.success {
+    color: green;
+    margin-bottom: 10px;
+}
+
+p.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Titres */
+h2, h3 {
+    color: #e2e8f0;
+}
+
+/* Contenu principal */
+.content {
+    margin-left: 240px; /* correspond à sidebar */
+    padding: 20px;
+}
+.content {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+/* Ajout style carte */
+.content > div {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}

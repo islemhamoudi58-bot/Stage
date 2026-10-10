@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IZiForM – مركز التكوين المهني</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* تطبيق خط عربي مناسب */
+    body {
+      font-family: 'Cairo', 'Poppins', sans-serif;
+    }
+
+    /* ===================== SECTION FORMATIONS ===================== */
+    .formations-hero {
+      position: relative;
+      padding: 140px 0;
+      background: url("img/deplome.jpg") center/cover no-repeat;
+    }
+
+    .formations-hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(12, 40, 66, 0.92), rgba(0, 200, 83, 0.85));
+    }
+
+    .formations-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ================= HERO TITLE DECORATION ================= */
+    .hero-title {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 26px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #00c853;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-heading {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .hero-heading::after {
+      content: "";
+      display: block;
+      width: 120px;
+      height: 4px;
+      background: #00c853;
+      margin: 22px auto 0;
+      border-radius: 5px;
+    }
+
+    .hero-subheading {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #e0e0e0;
+      margin-top: 15px;
+    }
+
+    /* ================== DIPLOMA CARDS ================== */
+    .diploma-card {
+      height: 100%;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      transition: all .3s ease;
+    }
+
+    .diploma-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .badge-btp {
+      background: #ff9800;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+    }
+
+    .badge-bts {
+      background: #00c853;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+    }
+
+    .btn-card {
+      padding: 9px 22px;
+      background: #00c853;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* Scroll Top Position for RTL */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      /* جهة اليسار لأن الاتجاه RTL */
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #00c853, #009e3f);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .35s ease;
+      z-index: 999;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg izi-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/log1.png" alt="Logo" height="50" class="ms-2">
+        <span class="brand-text">IZiForM</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#iziMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="iziMenu">
+        <ul class="navbar-nav me-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link active d-flex align-items-center" href="index.html">
+              <i class="fas fa-home ms-2"></i> الرئيسية
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="formation.html">التكوينات</a></li>
+          <li class="nav-item"><a class="nav-link" href="diplome.html">الشهادات</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerie.html">المعرض</a></li>
+          <li class="nav-item"><a class="nav-link" href="iziform/index.php">الفضاء الخاص</a></li>
+
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-inscription" href="inscription.html">التسجيل</a>
+          </li>
+
+          <li class="nav-item dropdown ms-lg-3">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">AR</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="diplome.html">🇫🇷 Français</a></li>
+              <li><a class="dropdown-item" href="diplome-en.html">🇬🇧 English</a></li>
+              <li><a class="dropdown-item" href="diplome-ar.html">🇸🇦 العربية</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="formations-hero" id="top">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="hero-title text-center text-white" data-aos="fade-down">
+        <span class="hero-badge">شهاداتنا</span>
+        <h1 class="hero-heading mt-4">شهادات منظرة BTP / BTS<br>مدنين وجرجيس</h1>
+        <h4 class="hero-subheading">بشهادة الباكالوريا أو بدونها</h4>
+        <p class="hero-description mt-4">اكتشف الشهادات المنظرة والمعترف بها مع IZiForM</p>
+      </div>
+      <br><br><br>
+      <div class="text-center">
+        <a href="#deplome" class="scroll-down text-white"><i class="fas fa-chevron-down fa-2x"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="service py-5" id="deplome">
+    <div class="container">
+      <div class="section-header text-center"><br><br><br><br>
+        <h2 class="section_title">شهادات منظرة BTP</h2>
+        <p>تكوين بدون باكالوريا</p>
+      </div>
+
+      <br><br>
+      <div class="row">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="service-item diploma-card btp-card">
+            <a href="preparateur-pharmacie-btp.html">
+              <div class="service-img">
+                <img src="img/pharmacie2.jpg" alt="محضر صيدلة">
+                <div class="service-overlay">
+                  <span class="badge-level badge-btp">BTP</span>
+                </div>
+              </div>
+            </a>
+            <div class="service-text">
+              <h3>تقني مساعد محضر صيدلة</h3>
+              <p>شهادة منظرة – بدون باكالوريا</p>
+              <a class="btn btn-card btn-btp" href="preparateur-pharmacie-btp.html">اكتشف المزيد</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item diploma-card btp-card">
+            <a href="Jardin-denfant-btp-bts.html">
+              <div class="service-img">
+                <img src="img/jardin.jpg" alt="رياض أطفال">
+                <div class="service-overlay">
+                  <span class="badge-level badge-btp">BTP</span>
+                </div>
+              </div>
+            </a>
+            <div class="service-text">
+              <h3>مربي رياض أطفال</h3>
+              <p>شهادة منظرة – بدون باكالوريا</p>
+              <a class="btn btn-card btn-btp" href="Jardin-denfant-btp-bts.html">اكتشف المزيد</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item diploma-card btp-card">
+            <a href="Comptabilite-denteprise.html">
+              <div class="service-img">
+                <img src="img/comta.jpg" alt="محاسبة">
+                <div class="service-overlay">
+                  <span class="badge-level badge-btp">BTP</span>
+                </div>
+              </div>
+            </a>
+            <div class="service-text">
+              <h3>محاسبة المنشأة</h3>
+              <p>شهادة منظرة – بدون باكالوريا</p>
+              <a class="btn btn-card btn-btp" href="Comptabilite-denteprise.html">اكتشف المزيد</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-to-bts text-center my-5">
+      <a href="#bts" aria-label="الذهاب إلى شهادات BTS">
+        <i class="fas fa-angle-double-down"></i>
+      </a>
+    </div>
+    </div>
+
+    <div class="service" id="bts">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section_title">شهادات منظرة BTS</h2>
+          <p>تكوين بشهادة الباكالوريا</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="service-item diploma-card bts-card">
+              <a href="preparateur-pharmacie-btp.html">
+                <div class="service-img">
+                  <img src="img/preparateur.jpg" alt="محضر صيدلة BTS">
+                  <div class="service-overlay">
+                    <span class="badge-level badge-bts">BTS</span>
+                  </div>
+                </div>
+              </a>
+              <div class="service-text">
+                <h3>تقني سامٍ محضر صيدلة</h3>
+                <p>شهادة منظرة – مع باكالوريا</p>
+                <a class="btn btn-card btn-bts" href="preparateur-pharmacie-btp.html">اكتشف المزيد</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item diploma-card bts-card">
+              <a href="Jardin-denfant-btp-bts.html">
+                <div class="service-img">
+                  <img src="img/directrice.jpg" alt="مديرة روضة">
+                  <div class="service-overlay">
+                    <span class="badge-level badge-bts">BTS</span>
+                  </div>
+                </div>
+              </a>
+              <div class="service-text">
+                <h3>مدير روضة أطفال</h3>
+                <p>شهادة منظرة – مع باكالوريا</p>
+                <a class="btn btn-card btn-bts" href="Jardin-denfant-btp-bts.html">اكتشف المزيد</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item diploma-card bts-card">
+              <a href="Comptabilite-denteprise.html">
+                <div class="service-img">
+                  <img src="img/comta2.jpg" alt="محاسبة BTS">
+                  <div class="service-overlay">
+                    <span class="badge-level badge-bts">BTS</span>
+                  </div>
+                </div>
+              </a>
+              <div class="service-text">
+                <h3>محاسبة المنشأة (تقني سامٍ)</h3>
+                <p>شهادة منظرة – مع باكالوريا</p>
+                <a class="btn btn-card btn-bts" href="Comptabilite-denteprise.html">اكتشف المزيد</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <footer class="site-footer bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <h5 class="footer-title border-bottom pb-2">اتصل بنا</h5>
+          <p><i class="fas fa-map-marker-alt ms-2"></i> شارع 20 مارس، جرجيس</p>
+          <p><i class="fas fa-map-marker-alt ms-2"></i> طريق قابس، مدنين</p>
+          <p><i class="fas fa-phone-alt ms-2"></i> 98,596,396 (+216)</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5 class="footer-title border-bottom pb-2">القائمة</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white text-decoration-none">الرئيسية</a></li>
+            <li><a href="diplome.html" class="text-white text-decoration-none">الشهادات</a></li>
+            <li><a href="contact.html" class="text-white text-decoration-none">اتصل بنا</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom text-center border-top pt-3 mt-4">
+        © 2026 IZiForM – جميع الحقوق محفوظة
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    const scrollTopBtn = document.querySelector('.scroll-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) scrollTopBtn.classList.add('show');
+      else scrollTopBtn.classList.remove('show');
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IZiForM – Validation Inscription</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url("img/inscription.jpg") center/cover no-repeat fixed;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .container-form {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+      color: #111;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .container-form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #00c853, #00a846);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-subtitle {
+      font-size: 1rem;
+      color: #111;
+      margin-bottom: 25px;
+    }
+
+    .form-select,
+    .form-control {
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-success {
+      background-color: #00c853;
+      border: none;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn-success:hover {
+      background-color: #00b248;
+      transform: translateY(-2px);
+    }
+
+    .info-user {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .info-user b {
+      color: #00c853;
+    }
+
+    .form-check {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .form-check-input {
+      accent-color: #00c853;
+      width: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-form">
+    <h2 class="form-title">Validation de l'inscription</h2>
+    <p class="form-subtitle">Veuillez confirmer vos informations </p>
+
+    <div class="info-user">
+      <p><b>Nom :</b> <span id="nom"></span></p>
+      <p><b>Prénom :</b> <span id="prenom"></span></p>
+      <p><b>Email :</b> <span id="email"></span></p>
+      <p><b>Téléphone :</b> <span id="tel"></span></p>
+    </div>
+
+    <form action="/SITE/iziform/save_inscription.php" method="POST" id="validationForm">
+
+
+
+      <div class="mb-3 text-start">
+        <label class="fw-semibold">Formation</label>
+        <select name="formation" class="form-select" id="formation" required></select>
+      </div>
+
+      <div class="mb-3 text-start">
+        <label class="fw-semibold">Type de formation</label><br>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="typeFormation" value="BTS" id="btsRadio" required>
+          <label class="form-check-label">BTS</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="typeFormation" value="BTP" id="btpRadio" required>
+          <label class="form-check-label">BTP</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="typeFormation" id="bts" value="Bac en cours " required>
+          <label class="form-check-label" for="Bac en cours ">Bac en cours</label>
+        </div>
+      </div>
+
+      <input type="hidden" name="nom" id="nomHidden">
+      <input type="hidden" name="prenom" id="prenomHidden">
+      <input type="hidden" name="email" id="emailHidden">
+      <input type="hidden" name="tel" id="telHidden">
+      <input type="hidden" name="formation" id="formationHidden">
+      <input type="hidden" name="typeFormation" id="typeFormationHidden">
+
+      <button type="submit" class="btn btn-success w-100 mt-3">
+        Valider
+      </button>
+
+
+    </form>
+
+  </div>
+  <!-- MESSAGE DE CONFIRMATION -->
+  <div id="messageBox" style="display:none; position:fixed; top:40%; left:50%; transform:translate(-50%,-50%);
+  background:white; padding:20px 30px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  text-align:center; z-index:9999;">
+
+    <h5 style="color: #00c853;">✅ Inscription validée !</h5>
+    <p>Votre inscription a été enregistrée avec succès.</p>
+
+    <button id="btnModifier" class="btn btn-warning">Modifier</button>
+  </div>
+
+  <script>
+    // Récupérer les infos du formulaire depuis l'URL
+    const params = new URLSearchParams(window.location.search);
+    const nom = params.get('nom') || '';
+    const prenom = params.get('prenom') || '';
+    const email = params.get('email') || '';
+    const tel = params.get('tel') || '';
+    const formation = params.get('formation') || '';
+    const typeFormation = params.get('typeFormation') || '';
+
+    // Remplir les spans visibles
+    document.getElementById('nom').textContent = nom;
+    document.getElementById('prenom').textContent = prenom;
+    document.getElementById('email').textContent = email;
+    document.getElementById('tel').textContent = tel;
+
+    // Remplir le select formation
+    const formationSelect = document.getElementById('formation');
+    const formations = ["Préparation en Pharmacie", "Jardin d'enfant", "Comptabilité d'entreprise", "Comptabilité & Finance", "Informatique de gestion"];
+    formations.forEach(f => {
+      const option = document.createElement('option');
+      option.value = f;
+      option.textContent = f;
+      if (f === formation) option.selected = true;
+      formationSelect.appendChild(option);
+    });
+
+    // Cocher le bon radio type de formation
+    if (typeFormation === "BTS") document.getElementById('btsRadio').checked = true;
+    if (typeFormation === "BTP") document.getElementById('btpRadio').checked = true;
+    if (typeFormation === "Bac en cours") document.getElementById('bacRadio').checked = true;
+
+    // Remplir les champs cachés
+    document.getElementById('nomHidden').value = nom;
+    document.getElementById('prenomHidden').value = prenom;
+    document.getElementById('emailHidden').value = email;
+    document.getElementById('telHidden').value = tel;
+    document.getElementById('formationHidden').value = formation;
+    document.getElementById('typeFormationHidden').value = typeFormation;
+  </script>
+
+
+  <script>
+    const form = document.getElementById('validationForm');
+    const messageBox = document.getElementById('messageBox');
+    const btnModifier = document.getElementById('btnModifier');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault(); // on bloque l'envoi classique
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/SITE/iziform/save_inscription.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          // ✅ Afficher le message de validation
+          messageBox.style.display = "block";
+
+          // 👉 Bouton "Modifier" → revenir à la page précédente
+          btnModifier.onclick = function () {
+            window.history.back();
+          };
+
+        } else {
+          alert("❌ Erreur lors de l'enregistrement.");
+        }
+
+      } catch (err) {
+        console.error(err);
+        alert("❌ Problème de connexion au serveur !");
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

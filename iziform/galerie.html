@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IZiForM – Centre de formation professionnelle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/galerie.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+<!-- =================== NAVBAR =================== -->
+  <nav class="navbar navbar-expand-lg izi-navbar">
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/log1.png" alt="Logo IZiForM" height="50" class="me-2">
+        <span class="brand-text">IZiForM</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#iziMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="iziMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+
+          <li class="nav-item">
+            <a class="nav-link active d-flex align-items-center" href="index.html">
+              <i class="fas fa-home me-2"></i> Accueil
+            </a>
+          </li>
+
+
+
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle" href="formation.html">Formations</a>
+
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="row">
+
+                  <!-- Santé -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-pills"></i> Santé
+                    </h6>
+                    <a class="dropdown-item" href="preparateur-pharmacie-btp.html">
+                      Technicien Préparateur en Pharmacie<br>
+                      <small class="text-muted">تقني محضر صيدلة</small>
+                    </a>
+                  </div>
+
+                  <!-- Comptabilité -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-calculator"></i> Comptabilité & Finance
+                    </h6>
+                    <a class="dropdown-item" href="comptabilite-finance.html">
+                      Comptabilité et Finance<br>
+                      <small class="text-muted">المحاسبة والمالية</small>
+                    </a>
+                    <a class="dropdown-item" href="Comptabilite-denteprise.html">
+                      Comptabilité d'entreprise<br>
+                      <small class="text-muted">محاسبة منشأة</small>
+                    </a>
+                  </div>
+
+                  <!-- Informatique -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-desktop"></i> Informatique de gestion
+                    </h6>
+                    <a class="dropdown-item" href="informatique de gestion.html">
+                      Informatique de gestion<br>
+                      <small class="text-muted">مساعد في إعلامية التصرف</small>
+                    </a>
+                  </div>
+
+                  <!-- Éducation -->
+                  <div class="col-md-3">
+                    <h6 class="mega-title">
+                      <i class="fas fa-child"></i> Éducation
+                    </h6>
+                    <a class="dropdown-item" href="Jardin-denfant-btp-bts.html">
+                      Jardin d'enfant<br>
+                      <small class="text-muted">رياض أطفال</small>
+                    </a><br>
+                    <a class="dropdown-item" href="educatrice-petite-enfance.html">
+                      Directeur de la Maternelle<br>
+                      <small class="text-muted">مربي طفولة أولى ومبكرة</small>
+                    </a>
+                  </div>
+
+                  <!-- Bouton -->
+                  <div class="col-md-12 text-center mt-4">
+                    <a href="formation.html" class="btn btn-dark btn-lg">
+                      Voir toutes les formations
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+
+
+          <li class="nav-item"><a class="nav-link" href="diplome.html">Diplômes</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+
+          <li class="nav-item"><a class="nav-link" href="iziform/index.php">Espaces Privée</a></li>
+
+
+          <li class="nav-item ms-3">
+            <a class="btn btn-inscription" href="insription.html">Inscription</a>
+          </li>
+
+          <li class="nav-item dropdown ms-3">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">FR</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="galerie.html">🇫🇷 Français</a></li>
+              <li><a class="dropdown-item" href="galerie-en.html">🇬🇧 English</a></li>
+              <li><a class="dropdown-item" href="galerie-ar.html">🇸🇦 العربية</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =================== GALERIE =================== -->
+  <section class="izi-gallery py-5">
+    <div class="container">
+
+      <!-- TITRE -->
+      <div class="text-center mb-5" data-aos="fade-down">
+        <br><br><br>
+        <span class="gallery-badge">
+          <i> ✦ Galerie IZiForM ✦</i>
+        </span>
+
+        <h2 class="gallery-title mt-3">
+          <i> Nos Moments en Images</i>
+        </h2>
+
+        <p class="gallery-subtitle mt-3">
+          <i>Plongez au cœur de l’univers</i> <strong><i>IZiForM</i></strong><i>, là où chaque image raconte
+            une histoire de</i> <span><i>réussite</i></span><i>, de</i> <span><i>passion</i></span> <i>et
+            de </i><span><i>fierté partagée</i></span><i> entre nos formateurs et nos étudiants.</i>
+        </p>
+      </div>
+
+
+      <!-- FILTRES -->
+      <div class="gallery-filters text-center mb-4" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="remise">Remises de diplômes</button>
+        <button class="filter-btn" data-filter="cours">Cours et ateliers</button>
+        <button class="filter-btn" data-filter="evenement">Événements</button>
+      </div>
+
+      <!-- IMAGES -->
+      <div class="row g-4">
+
+        <!-- ================= REMISE ================= -->
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/phar1.png"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/phar2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/phar4.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/phar5.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/phar6.jpg"></div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/pharr1.png"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/pharr2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/pharr3.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/pharr4.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/pharr5.PNG"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/pharr6.PNG"></div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/far1.png"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/far2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/far3.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/far4.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/far5.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/far6.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="remise">
+          <div class="gallery-card"><img src="img/far7.jpg"></div>
+        </div>
+
+        <!-- ================= COURS ================= -->
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/cour1.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/cour2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/cour3.png"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/cour4.jpg"></div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/ccour1.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/ccour2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/ccour3.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/ccour4.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/ccour5.jpg"></div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/coour1.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/coour2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/coour3.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/coour4.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="cours">
+          <div class="gallery-card"><img src="img/coour5.jpg"></div>
+        </div>
+
+        <!-- ================= EVENEMENT ================= -->
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eve1.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eve2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eve3.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eve4.jpg"></div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eeve1.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eeve2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eeve3.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/eeve4.jpg"></div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/evve1.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/evve2.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/evve3.jpg"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 gallery-item" data-category="evenement">
+          <div class="gallery-card"><img src="img/evve4.jpg"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="site-footer">
+    <div class="container py-5">
+      <div class="row">
+
+        <!-- Contact -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Contact</h5>
+          <p><i class="fas fa-map-marker-alt"></i> شارع 20 مارس بجانب بنك الوفاق, Zarzis</p>
+          <p><i class="fas fa-map-marker-alt"></i> طريق قابس قبالة المحكمة العقارية , Medénine</p>
+          <p><i class="fas fa-phone-alt"></i> (+216) 98596396</p>
+          <p><i class="fas fa-phone-alt"></i> (+216) 53596396</p>
+          <p><i class="fas fa-phone-alt"></i> (+216) 56596395</p>
+          <p><i class="fas fa-envelope"></i> zitounaformation1@gmail.com</p>
+
+          <div class="footer-social mt-3">
+            <a href="https://x.com/Zitouna12345" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100072453524289" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@ZitounaFormation" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/zitounaformation?igsh=MnBxYmlzbnM1eG1s" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/zitouna-formation-8715a5331/" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Menu -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Menu</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="iziform.html">Centre IZiForM</a></li>
+            <li><a href="formations.html">Formations</a></li>
+            <li><a href="diplomes.html">Diplômes</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="inscription.html">Inscription</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Diplômes -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Diplômes BTP - BTS</h5>
+          <ul class="footer-links">
+            <li><a href="preparateur-pharmacie-btp.html">Technicien Préparateur en Pharmacie</a></li>
+            <li><a href="bts-comptabilite-et-finance.html">Comptabilité et finance</a></li>
+            <li><a href="Informatique-gestion.html">Informatique de gestion</a></li>
+            <li><a href="Comptabilite-denteprise.html">Comptabilité d'entreprise</a></li>
+            <li><a href="Jardin-denfant-btp-bts.html">Jardin d'enfant</a></li>
+          </ul>
+        </div>
+
+        <!-- Facebook Page -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <h5 class="footer-title">Page Facebook</h5>
+          <p><fb:like-box href="https://www.facebook.com/profile.php?id=100072453524289" width="253" hight="270"
+              stream="false" header="true"></fb:like-box> </p>
+          <p><fb:like-box href=" https://www.facebook.com/profile.php?id=100063778484748" width="253" hight="270"
+              stream="false" header="true"></fb:like-box> </p>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v18.0">
+    </script>
+    <div class="container copyright">
+
+      <h4>Center de formation Médenine</h4>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3332.824459754969!2d10.487520328836053!3d33.3495355621447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1254d7794364c94d%3A0xf5fde291298ac3b5!2sCentre%20de%20formation%20zitouna!5e0!3m2!1sfr!2stn!4v1724096346266!5m2!1sfr!2stn"
+        width="100%" height="215" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+      <h4>Center de formation Zarzis</h4>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6654.076649633768!2d11.107172!3d33.50038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13aaef0dbaa7a3b7%3A0x52db37ef088fe9ff!2sInstitut%20Zitouna%20De%20Formation!5e0!3m2!1sfr!2stn!4v1716802216580!5m2!1sfr!2stn"
+        width="100%" height="215" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+    </div>
+    <div class="footer-bottom text-center py-3">
+      &copy; 2026 IZiForM – Tous droits réservés
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');//selection d'element
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(btn => {//parcours a chaque bouton
+      btn.addEventListener('click', () => {
+
+        // bouton actif
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');//lit le valeur d'attrbut
+
+        galleryItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+
+          if (filter === 'all' || category === filter) {//si bouton all
+            item.style.display = 'block';//affiche
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
